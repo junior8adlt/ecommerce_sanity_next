@@ -37,7 +37,7 @@ const Cart = () => {
 
     const data = await response.json();
 
-    toast.loading('Redirecting...');
+    toast.loading('Redireccionando a la pagina de pago');
 
     stripe.redirectToCheckout({ sessionId: data.id });
   };
@@ -50,20 +50,20 @@ const Cart = () => {
           onClick={() => setShowCart(false)}
         >
           <AiOutlineLeft />
-          <span className='heading'>Your Cart</span>
+          <span className='heading'>Tu Carrito</span>
           <span className='cart-num-items'>({totalQuantities} Items)</span>
         </button>
         {cartItems.length < 1 ? (
           <div className='empty-cart'>
             <AiOutlineShopping size={150} />
-            <h3>Your shopping bag is empty </h3>
+            <h3>Tu carrito está vacío </h3>
             <Link href='/'>
               <button
                 type='button'
                 className='btn'
                 onClick={() => setShowCart(false)}
               >
-                Continue Shopping
+                Continuar comprando
               </button>
             </Link>
           </div>
@@ -124,7 +124,7 @@ const Cart = () => {
             </div>
             <div className='btn-container'>
               <button type='button' className='btn' onClick={handleCheckout}>
-                Pay with Stripe
+                Finalizar compra
               </button>
             </div>
           </div>
